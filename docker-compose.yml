@@ -1,0 +1,99 @@
+version: '3.7'
+
+services:
+
+  # Utils BACKEND
+
+  mysql:
+    image: mysql:latest
+    container_name: mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+    ports:
+      - "13306:3306"
+    expose:
+      - '3306'
+    networks:
+      redapi:
+        ipv4_address: 172.20.1.5
+
+  memcached:
+    image: memcached
+    container_name: memcached
+    ports:
+      - '11211:11211'
+    networks:
+      redapi:
+        ipv4_address: 172.20.1.6
+
+   # APIs BACKEND
+
+  api-gateway:
+    image: lpacha/api-gateway
+    container_name: api-gateway
+    ports:
+      - '443:8443'
+    networks:
+      redapi:
+        ipv4_address: 172.20.1.10
+
+  api-auth:
+    image: lpacha/api-auth
+    container_name: api-auth
+    ports:
+      - '8080:8080'
+    expose:
+      - '8080'
+    networks:
+      redapi:
+        ipv4_address: 172.20.1.11
+
+  api-historico:
+    image: lpacha/api-historico
+    container_name: api-historico
+    ports:
+      - '8081:8081'
+    expose:
+      - '8081'
+    networks:
+      redapi:
+        ipv4_address: 172.20.1.12
+
+  # Nodered - Mosquitto
+  
+  mosquitto:
+    image: eclipse-mosquitto                 
+    container_name: mosquitto        
+    ports:
+      - '1883:1883'
+      - '9001:9001'
+    expose:
+      - '1883'
+      - '9001'
+    volumes:
+      - ./mosquitto/config:/mosquitto/config
+    networks:
+      redapi:
+        ipv4_address: 172.20.1.7
+
+  nodered:                               
+    image: nodered/node-red
+    container_name: nodered
+    privileged: true
+    ports:
+      - '1880:1880'
+    expose:
+      - '1880'
+    volumes:
+      - /dev:/dev
+      - ./node-red-data:/data
+    networks:
+      redapi:
+        ipv4_address: 172.20.1.8
+
+networks:
+  redapi:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.1.0/24
