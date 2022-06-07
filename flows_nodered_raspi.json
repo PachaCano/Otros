@@ -1,0 +1,339 @@
+[
+    {
+        "id": "6d60c71f0bc4b4a8",
+        "type": "tab",
+        "label": "BME280",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "5b83e625d3a3ddc7",
+        "type": "inject",
+        "z": "6d60c71f0bc4b4a8",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "15",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 90,
+        "y": 260,
+        "wires": [
+            [
+                "aeac7a72995ed66e"
+            ]
+        ]
+    },
+    {
+        "id": "6156dd14c98f8dd4",
+        "type": "template",
+        "z": "6d60c71f0bc4b4a8",
+        "name": "ParseJSON",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{\n\"temperatura\":{{payload.temperature_C}},\n\"humedad\":{{payload.humidity}},\n\"presion\":{{payload.pressure_hPa}},\n\"punto_rocio\":{{payload.dewPoint_C}},\n\"altitud\":{{payload.altitude_M}}\n}",
+        "output": "json",
+        "x": 450,
+        "y": 260,
+        "wires": [
+            [
+                "a789a1afed17e880"
+            ]
+        ]
+    },
+    {
+        "id": "a789a1afed17e880",
+        "type": "change",
+        "z": "6d60c71f0bc4b4a8",
+        "name": "setPayload",
+        "rules": [
+            {
+                "t": "set",
+                "p": "template",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 610,
+        "y": 260,
+        "wires": [
+            [
+                "9e4034fc72baa5b6"
+            ]
+        ]
+    },
+    {
+        "id": "9e4034fc72baa5b6",
+        "type": "function",
+        "z": "6d60c71f0bc4b4a8",
+        "name": "ArmaDTO",
+        "func": "msg.payload.humedad = parseFloat(msg.payload.humedad.toFixed(2));\nmsg.payload.presion = parseFloat(msg.payload.presion.toFixed(2));\nmsg.payload.puntoRocio = parseFloat(msg.payload.punto_rocio.toFixed(2));\nmsg.payload.altitud = parseFloat(msg.payload.altitud.toFixed(2));\n\n//msg.payload.temperatura_UoM = \"ºC\";\n//msg.payload.humedad_UoM = \"%\";\n//msg.payload.presion_UoM = \"Pa\";\n//msg.payload.punto_rocio_UoM = \"ºC\";\n//msg.payload.altitud_UoM = \"Mts\";\n\nvar aux = {\n    temperatura:msg.payload.temperatura,\n    humedad:msg.payload.humedad,\n    presion:msg.payload.presion,\n    puntoRocio:msg.payload.puntoRocio,\n    altitud:msg.payload.altitud\n}\n\nmsg.payload = {};\nmsg.payload.rawData = aux;\n\nvar out = Math.floor(Math.random() * (4 - 1)) + 1;\n\nmsg.payload.subCategoria = \"raspi\";\nmsg.payload.identificador = \"bme280\";\nmsg.topic = \"/raspi/bme280\";\n\nif (out == 1) {\n    msg.payload.categoria = \"habitacion\";\n    msg.topic = \"habitacion\" + msg.topic;\n} else if (out == 2) {\n    msg.payload.categoria = \"comedor\";\n    msg.topic = \"comedor\" + msg.topic;\n} else {\n    msg.payload.categoria = \"living\";\n    msg.topic = \"living\" + msg.topic;\n}\n\nmsg.payload.topic = msg.topic;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "\n",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 180,
+        "wires": [
+            [
+                "975d56e7a4c1a564",
+                "d2067b624da249bf"
+            ]
+        ]
+    },
+    {
+        "id": "975d56e7a4c1a564",
+        "type": "debug",
+        "z": "6d60c71f0bc4b4a8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 710,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "9c36338dc8265ef7",
+        "type": "ui_gauge",
+        "z": "6d60c71f0bc4b4a8",
+        "name": "",
+        "group": "5c916f117a65dbca",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temperatura",
+        "label": "ºC",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "30",
+        "colors": [
+            "#6daddf",
+            "#f2f282",
+            "#e86868"
+        ],
+        "seg1": "Frío",
+        "seg2": "Calor",
+        "className": "",
+        "x": 430,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "db8ba9fa549d290a",
+        "type": "change",
+        "z": "6d60c71f0bc4b4a8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.temperature_C",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 420,
+        "y": 360,
+        "wires": [
+            [
+                "9c36338dc8265ef7",
+                "47e64d4c89516341"
+            ]
+        ]
+    },
+    {
+        "id": "d2067b624da249bf",
+        "type": "mqtt out",
+        "z": "6d60c71f0bc4b4a8",
+        "name": "",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "2f514204aa9d12a5",
+        "x": 610,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "aeac7a72995ed66e",
+        "type": "Bme280",
+        "z": "6d60c71f0bc4b4a8",
+        "name": "",
+        "bus": "1",
+        "address": "0x76",
+        "topic": "bme280",
+        "extra": true,
+        "x": 260,
+        "y": 260,
+        "wires": [
+            [
+                "6156dd14c98f8dd4",
+                "db8ba9fa549d290a"
+            ]
+        ]
+    },
+    {
+        "id": "47e64d4c89516341",
+        "type": "ui_chart",
+        "z": "6d60c71f0bc4b4a8",
+        "name": "",
+        "group": "5c916f117a65dbca",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "Temperatura2",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "86400",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 640,
+        "y": 460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b017442e982c0852",
+        "type": "ui_table",
+        "z": "6d60c71f0bc4b4a8",
+        "group": "9d9482d5e90eed5a",
+        "name": "",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "columns": [],
+        "outputs": 0,
+        "cts": false,
+        "x": 1110,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "5c916f117a65dbca",
+        "type": "ui_group",
+        "name": "Default",
+        "tab": "acbec5fe0f8fd447",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "2f514204aa9d12a5",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "cpsoa.mooo.com",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "5",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "9d9482d5e90eed5a",
+        "type": "ui_group",
+        "name": "Lista de Productos",
+        "tab": "7accdefacf75cafe",
+        "order": 1,
+        "disp": true,
+        "width": "19",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "acbec5fe0f8fd447",
+        "type": "ui_tab",
+        "name": "Temperatura",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "7accdefacf75cafe",
+        "type": "ui_tab",
+        "name": "Productos",
+        "icon": "dashboard",
+        "order": 3,
+        "disabled": false,
+        "hidden": false
+    }
+]
