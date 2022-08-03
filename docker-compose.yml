@@ -22,6 +22,8 @@ services:
     container_name: memcached
     ports:
       - '11211:11211'
+    expose:
+      - '11211'
     networks:
       redapi:
         ipv4_address: 172.20.1.6
