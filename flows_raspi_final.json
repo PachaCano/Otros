@@ -1,0 +1,2749 @@
+[
+    {
+        "id": "cd6a546976db31b5",
+        "type": "tab",
+        "label": "Config",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "59fa7343ef35ec3d",
+        "type": "tab",
+        "label": "Auth",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "27c9c3458b135fa3",
+        "type": "tab",
+        "label": "POST",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "6d60c71f0bc4b4a8",
+        "type": "tab",
+        "label": "BME280",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "c0379f98f4b9dfe9",
+        "type": "tab",
+        "label": "PIR y RFID",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "3928cff450179ddf",
+        "type": "tab",
+        "label": "GET",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "846cf899a1e3891c",
+        "type": "tab",
+        "label": "Ultimos estados",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "a6bb807b10db2b5c",
+        "type": "subflow",
+        "name": "Estado BE / Auth",
+        "info": "",
+        "category": "",
+        "in": [
+            {
+                "x": 40,
+                "y": 240,
+                "wires": [
+                    {
+                        "id": "3cb71b766eb54a51"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 840,
+                "y": 60,
+                "wires": [
+                    {
+                        "id": "74a686b526dc8160",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 900,
+                "y": 320,
+                "wires": [
+                    {
+                        "id": "74a686b526dc8160",
+                        "port": 1
+                    }
+                ]
+            },
+            {
+                "x": 880,
+                "y": 420,
+                "wires": [
+                    {
+                        "id": "74a686b526dc8160",
+                        "port": 2
+                    }
+                ]
+            },
+            {
+                "x": 870,
+                "y": 540,
+                "wires": [
+                    {
+                        "id": "74a686b526dc8160",
+                        "port": 3
+                    }
+                ]
+            }
+        ],
+        "env": [],
+        "meta": {},
+        "color": "#DDAA99",
+        "outputLabels": [
+            "OK",
+            "Renovar Token",
+            "Disconnected",
+            "Desconocido"
+        ],
+        "status": {
+            "x": 920,
+            "y": 260,
+            "wires": [
+                {
+                    "id": "b6951f9f85158b7f",
+                    "port": 0
+                },
+                {
+                    "id": "74a686b526dc8160",
+                    "port": 0
+                },
+                {
+                    "id": "74a686b526dc8160",
+                    "port": 1
+                },
+                {
+                    "id": "74a686b526dc8160",
+                    "port": 2
+                },
+                {
+                    "id": "74a686b526dc8160",
+                    "port": 3
+                }
+            ]
+        }
+    },
+    {
+        "id": "0e5b3778adc62c63",
+        "type": "subflow",
+        "name": "Autenticador",
+        "info": "",
+        "category": "",
+        "in": [
+            {
+                "x": 50,
+                "y": 30,
+                "wires": [
+                    {
+                        "id": "507d67821e2b3882"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 910,
+                "y": 180,
+                "wires": [
+                    {
+                        "id": "e20da518c33f7b9a",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 900,
+                "y": 340,
+                "wires": [
+                    {
+                        "id": "b45ff7e980a15ef3",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": [
+            {
+                "name": "username",
+                "type": "str",
+                "value": "userAdmin"
+            },
+            {
+                "name": "password",
+                "type": "str",
+                "value": "elipacha2022"
+            }
+        ],
+        "meta": {},
+        "color": "#DDAA99",
+        "outputLabels": [
+            "TOKEN OK",
+            "NO TOKEN :("
+        ],
+        "status": {
+            "x": 840,
+            "y": 40,
+            "wires": [
+                {
+                    "id": "3c4782779d600ca9",
+                    "port": 0
+                },
+                {
+                    "id": "b45ff7e980a15ef3",
+                    "port": 0
+                },
+                {
+                    "id": "49d12542bd6a0e6f",
+                    "port": 0
+                }
+            ]
+        }
+    },
+    {
+        "id": "3c9196bdbec59b48",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-dark",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#df95dd",
+                "baseFont": "Georgia,Georgia,serif",
+                "edited": true,
+                "reset": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#097479",
+                    "value": "#df95dd",
+                    "edited": true
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#df95dd",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#f1d0f0",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#555555",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#eeeeee",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#df95dd",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "Georgia,Georgia,serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "acbec5fe0f8fd447",
+        "type": "ui_tab",
+        "name": "Histórico",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "5c916f117a65dbca",
+        "type": "ui_group",
+        "name": "Listado",
+        "tab": "acbec5fe0f8fd447",
+        "order": 1,
+        "disp": true,
+        "width": 13,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "2f514204aa9d12a5",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "cpsoa.mooo.com",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "5",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "324c206d2a6d01ac",
+        "type": "tls-config",
+        "z": "0e5b3778adc62c63",
+        "name": "",
+        "cert": "",
+        "key": "",
+        "ca": "",
+        "certname": "",
+        "keyname": "",
+        "caname": "",
+        "servername": "",
+        "verifyservercert": false,
+        "alpnprotocol": ""
+    },
+    {
+        "id": "57a2b28a73a273b8",
+        "type": "tls-config",
+        "z": "a6bb807b10db2b5c",
+        "name": "",
+        "cert": "",
+        "key": "",
+        "ca": "",
+        "certname": "",
+        "keyname": "",
+        "caname": "",
+        "servername": "",
+        "verifyservercert": false,
+        "alpnprotocol": ""
+    },
+    {
+        "id": "0a8e5288251d92fc",
+        "type": "tls-config",
+        "name": "",
+        "cert": "",
+        "key": "",
+        "ca": "",
+        "certname": "",
+        "keyname": "",
+        "caname": "",
+        "servername": "",
+        "verifyservercert": false,
+        "alpnprotocol": ""
+    },
+    {
+        "id": "ccb7b3cd40a7cdc3",
+        "type": "telegram bot",
+        "botname": "soa_pc_2022",
+        "usernames": "",
+        "chatids": "",
+        "baseapiurl": "",
+        "updatemode": "polling",
+        "pollinterval": "300",
+        "usesocks": false,
+        "sockshost": "",
+        "socksport": "6667",
+        "socksusername": "anonymous",
+        "sockspassword": "",
+        "bothost": "",
+        "botpath": "",
+        "localbotport": "8443",
+        "publicbotport": "8443",
+        "privatekey": "",
+        "certificate": "",
+        "useselfsignedcertificate": false,
+        "sslterminated": false,
+        "verboselogging": false
+    },
+    {
+        "id": "063c88fad1c83a5d",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "magm.mooo.com",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "5",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "632dd31c506ad044",
+        "type": "ui_group",
+        "name": "Temperatura",
+        "tab": "61650a54c06ec877",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "61650a54c06ec877",
+        "type": "ui_tab",
+        "name": "BME280",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "1e25c1bc251f3a72",
+        "type": "ui_group",
+        "name": "Último",
+        "tab": "acbec5fe0f8fd447",
+        "order": 2,
+        "disp": true,
+        "width": 11,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "06aaa95c538f4ab1",
+        "type": "ui_group",
+        "name": "Nuevo dato mqtt",
+        "tab": "61650a54c06ec877",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "618ae82cad994b28",
+        "type": "ui_tab",
+        "name": "Último estado",
+        "icon": "dashboard",
+        "order": 3,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "770cfeb9b86b033d",
+        "type": "ui_group",
+        "name": "habitacion/raspi/Llavero",
+        "tab": "618ae82cad994b28",
+        "order": 1,
+        "disp": true,
+        "width": 9,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "59cf72f9132b74ee",
+        "type": "ui_group",
+        "name": "habitacion/raspi/RedBus",
+        "tab": "618ae82cad994b28",
+        "order": 2,
+        "disp": true,
+        "width": 9,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "0e98a85edf42cce2",
+        "type": "ui_group",
+        "name": "habitacion/raspi/Tarjeta",
+        "tab": "618ae82cad994b28",
+        "order": 3,
+        "disp": true,
+        "width": 9,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "2a75df78c8acf7d3",
+        "type": "ui_group",
+        "name": "comedor/raspi/Llavero",
+        "tab": "618ae82cad994b28",
+        "order": 4,
+        "disp": true,
+        "width": 9,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "4ffcd0c2295bfc73",
+        "type": "ui_group",
+        "name": "comedor/raspi/RedBus",
+        "tab": "618ae82cad994b28",
+        "order": 5,
+        "disp": true,
+        "width": 9,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "fed5826aacd1115e",
+        "type": "ui_group",
+        "name": "comedor/raspi/Tarjeta",
+        "tab": "618ae82cad994b28",
+        "order": 6,
+        "disp": true,
+        "width": 9,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "78e159f74573253d",
+        "type": "ui_group",
+        "name": "living/raspi/Llavero",
+        "tab": "618ae82cad994b28",
+        "order": 7,
+        "disp": true,
+        "width": 9,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "7c53060ca6048737",
+        "type": "ui_group",
+        "name": "living/raspi/RedBus",
+        "tab": "618ae82cad994b28",
+        "order": 8,
+        "disp": true,
+        "width": 9,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "b27c4a8444c4c702",
+        "type": "ui_group",
+        "name": "living/raspi/Tarjeta",
+        "tab": "618ae82cad994b28",
+        "order": 9,
+        "disp": true,
+        "width": 9,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "ed45bc4c1718dcbc",
+        "type": "ui_spacer",
+        "z": "846cf899a1e3891c",
+        "name": "spacer",
+        "group": "0e98a85edf42cce2",
+        "order": 2,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "3cb71b766eb54a51",
+        "type": "function",
+        "z": "a6bb807b10db2b5c",
+        "name": "Check URL ",
+        "func": "let token = msg.token;\n\nif (!token) {\n    token = \"No hay token :(\";\n}\n\nflow.set(\"token\", token);\n\nlet url = msg.urlBase;\n\nif (!url) {\n    return [null, {error: \"No está definida la URL base. Revisar archivo config.json\"}];\n}\n\nif (url.startsWith(\"https\") && url.length > 10) {\n    \n    if (!url.endsWith(\"/\")) url += \"/\";\n    \n    flow.set(\"url\", url);\n    msg.urlBase = url;\n    return [msg, null];\n    \n}\n\nreturn [null, {error: \"No está definida correctamente la URL base. Revisar archivo config.json\"}];",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 190,
+        "y": 240,
+        "wires": [
+            [
+                "7e4f13013c32bcb6"
+            ],
+            [
+                "b6951f9f85158b7f"
+            ]
+        ],
+        "outputLabels": [
+            "OK",
+            "Error"
+        ]
+    },
+    {
+        "id": "b6951f9f85158b7f",
+        "type": "change",
+        "z": "a6bb807b10db2b5c",
+        "name": "Set payload error",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "error",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 410,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7e4f13013c32bcb6",
+        "type": "function",
+        "z": "a6bb807b10db2b5c",
+        "name": "Preparar Request",
+        "func": "\nmsg.url = flow.get(\"url\") + \"api/auth/verify/token?token=\" + flow.get(\"token\");\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 160,
+        "wires": [
+            [
+                "e2f4c7182fd9c642"
+            ]
+        ]
+    },
+    {
+        "id": "e2f4c7182fd9c642",
+        "type": "http request",
+        "z": "a6bb807b10db2b5c",
+        "name": "",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "57a2b28a73a273b8",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 545,
+        "y": 100,
+        "wires": [
+            [
+                "74a686b526dc8160"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "74a686b526dc8160",
+        "type": "function",
+        "z": "a6bb807b10db2b5c",
+        "name": "Status Code",
+        "func": "if (msg.statusCode == 200) {\n    return [{payload : 'Logueado OK', url: flow.get(\"url\"), token: flow.get(\"token\")}, null, null, null];\n} else if (msg.statusCode == 401) {\n    return [null, {payload : 'No logueado', url: flow.get(\"url\"), token: flow.get(\"token\")}, null, null];\n} else if (msg.statusCode == \"ECONNREFUSED\") {\n    return [null, null, {payload : 'Desconectado', url: flow.get(\"url\"), token: flow.get(\"token\")}, null];\n} else {\n    return [null, null, null, {payload : \"Desconocido :(\", url: flow.get(\"url\"), token: flow.get(\"token\")}];\n}\nreturn msg;",
+        "outputs": 4,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 240,
+        "wires": [
+            [],
+            [],
+            [],
+            []
+        ],
+        "outputLabels": [
+            "200 OK",
+            "401 UA",
+            "Disconnected",
+            "Desconocido"
+        ]
+    },
+    {
+        "id": "5e7ed307de424a37",
+        "type": "function",
+        "z": "0e5b3778adc62c63",
+        "name": "Preparar Request (login)",
+        "func": "msg.payload = {\n    username: msg.username,\n    password: msg.password\n}\n\nmsg.url = msg.url + \"api/auth/login\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 250,
+        "y": 140,
+        "wires": [
+            [
+                "04b8cf531ffd885c",
+                "49d12542bd6a0e6f"
+            ]
+        ]
+    },
+    {
+        "id": "507d67821e2b3882",
+        "type": "change",
+        "z": "0e5b3778adc62c63",
+        "name": "Set Username Password",
+        "rules": [
+            {
+                "t": "set",
+                "p": "username",
+                "pt": "msg",
+                "to": "username",
+                "tot": "env"
+            },
+            {
+                "t": "set",
+                "p": "password",
+                "pt": "msg",
+                "to": "password",
+                "tot": "env"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 230,
+        "y": 40,
+        "wires": [
+            [
+                "5e7ed307de424a37"
+            ]
+        ]
+    },
+    {
+        "id": "04b8cf531ffd885c",
+        "type": "http request",
+        "z": "0e5b3778adc62c63",
+        "name": "",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "324c206d2a6d01ac",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 475,
+        "y": 220,
+        "wires": [
+            [
+                "f29fb9dc585d78e4"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "49d12542bd6a0e6f",
+        "type": "change",
+        "z": "0e5b3778adc62c63",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Logueando...",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 635,
+        "y": 80,
+        "wires": [
+            []
+        ],
+        "l": false
+    },
+    {
+        "id": "f29fb9dc585d78e4",
+        "type": "switch",
+        "z": "0e5b3778adc62c63",
+        "name": "",
+        "property": "statusCode",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "200",
+                "vt": "str"
+            },
+            {
+                "t": "neq",
+                "v": "200",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 630,
+        "y": 240,
+        "wires": [
+            [
+                "e20da518c33f7b9a",
+                "3c4782779d600ca9"
+            ],
+            [
+                "b45ff7e980a15ef3"
+            ]
+        ],
+        "outputLabels": [
+            "OK",
+            "No OK"
+        ]
+    },
+    {
+        "id": "e20da518c33f7b9a",
+        "type": "json",
+        "z": "0e5b3778adc62c63",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 765,
+        "y": 220,
+        "wires": [
+            []
+        ],
+        "l": false
+    },
+    {
+        "id": "3c4782779d600ca9",
+        "type": "change",
+        "z": "0e5b3778adc62c63",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Token OK",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 725,
+        "y": 180,
+        "wires": [
+            []
+        ],
+        "l": false
+    },
+    {
+        "id": "b45ff7e980a15ef3",
+        "type": "change",
+        "z": "0e5b3778adc62c63",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "No Token",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 795,
+        "y": 260,
+        "wires": [
+            []
+        ],
+        "l": false
+    },
+    {
+        "id": "b6dcc870b0710759",
+        "type": "inject",
+        "z": "cd6a546976db31b5",
+        "name": "Inyecto por 1ra vez",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 160,
+        "wires": [
+            [
+                "c752b7fcaebbf094"
+            ]
+        ]
+    },
+    {
+        "id": "c752b7fcaebbf094",
+        "type": "file in",
+        "z": "cd6a546976db31b5",
+        "name": "Leo archivo config.json",
+        "filename": "config.json",
+        "filenameType": "str",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 400,
+        "y": 160,
+        "wires": [
+            [
+                "2d95e012fb84c374"
+            ]
+        ]
+    },
+    {
+        "id": "2d95e012fb84c374",
+        "type": "json",
+        "z": "cd6a546976db31b5",
+        "name": "Parseo string a json",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 680,
+        "y": 140,
+        "wires": [
+            [
+                "405cc6ed7c5f506f"
+            ]
+        ]
+    },
+    {
+        "id": "405cc6ed7c5f506f",
+        "type": "change",
+        "z": "cd6a546976db31b5",
+        "name": "Seteo variables en entorno",
+        "rules": [
+            {
+                "t": "set",
+                "p": "config",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 680,
+        "y": 220,
+        "wires": [
+            [
+                "4f8bdf8e0d9d5260"
+            ]
+        ]
+    },
+    {
+        "id": "b788bda7245e7508",
+        "type": "catch",
+        "z": "cd6a546976db31b5",
+        "name": "Handler errores",
+        "scope": [
+            "c752b7fcaebbf094"
+        ],
+        "uncaught": false,
+        "x": 120,
+        "y": 240,
+        "wires": [
+            [
+                "a0a3ae9131e0633e"
+            ]
+        ]
+    },
+    {
+        "id": "a0a3ae9131e0633e",
+        "type": "function",
+        "z": "cd6a546976db31b5",
+        "name": "Seteo en !file la config",
+        "func": "msg.payload = {\n    urlBase : 'https://cpsoa.mooo.com'\n};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 160,
+        "y": 320,
+        "wires": [
+            [
+                "50ebe8bf4a566a85"
+            ]
+        ]
+    },
+    {
+        "id": "50ebe8bf4a566a85",
+        "type": "file",
+        "z": "cd6a546976db31b5",
+        "name": "Escribo file si no existe",
+        "filename": "config.json",
+        "filenameType": "str",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 200,
+        "y": 400,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1dcd3535c8675aa6",
+        "type": "watch",
+        "z": "cd6a546976db31b5",
+        "name": "Veo si cambió el file",
+        "files": "config.json",
+        "recursive": "",
+        "x": 470,
+        "y": 380,
+        "wires": [
+            [
+                "997308981787a66d"
+            ]
+        ]
+    },
+    {
+        "id": "997308981787a66d",
+        "type": "delay",
+        "z": "cd6a546976db31b5",
+        "name": "Delay 1s",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 420,
+        "y": 260,
+        "wires": [
+            [
+                "c752b7fcaebbf094"
+            ]
+        ]
+    },
+    {
+        "id": "4f8bdf8e0d9d5260",
+        "type": "link out",
+        "z": "cd6a546976db31b5",
+        "name": "Salida Config",
+        "mode": "link",
+        "links": [
+            "6ec7e51c67e6e5a2"
+        ],
+        "x": 825,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "6ec7e51c67e6e5a2",
+        "type": "link in",
+        "z": "59fa7343ef35ec3d",
+        "name": "",
+        "links": [
+            "4f8bdf8e0d9d5260"
+        ],
+        "x": 145,
+        "y": 100,
+        "wires": [
+            [
+                "8c7e4d71a10d7be1"
+            ]
+        ]
+    },
+    {
+        "id": "8c7e4d71a10d7be1",
+        "type": "change",
+        "z": "59fa7343ef35ec3d",
+        "name": "Init URL Base / Token",
+        "rules": [
+            {
+                "t": "set",
+                "p": "urlBase",
+                "pt": "msg",
+                "to": "config.urlBase",
+                "tot": "global"
+            },
+            {
+                "t": "set",
+                "p": "token",
+                "pt": "msg",
+                "to": "authToken.tokenEncript",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 180,
+        "y": 160,
+        "wires": [
+            [
+                "1477891a04519d8e"
+            ]
+        ]
+    },
+    {
+        "id": "1477891a04519d8e",
+        "type": "subflow:a6bb807b10db2b5c",
+        "z": "59fa7343ef35ec3d",
+        "name": "",
+        "x": 370,
+        "y": 240,
+        "wires": [
+            [
+                "2e2372f493751cec"
+            ],
+            [
+                "aecf667e1820c71d",
+                "2e2372f493751cec"
+            ],
+            [
+                "2e2372f493751cec"
+            ],
+            [
+                "2e2372f493751cec",
+                "d1ee6671ae3b1970"
+            ]
+        ]
+    },
+    {
+        "id": "aecf667e1820c71d",
+        "type": "subflow:0e5b3778adc62c63",
+        "z": "59fa7343ef35ec3d",
+        "name": "",
+        "x": 650,
+        "y": 160,
+        "wires": [
+            [
+                "4f1d349bb85c6454"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "2e2372f493751cec",
+        "type": "change",
+        "z": "59fa7343ef35ec3d",
+        "name": "Set Global Estado BE",
+        "rules": [
+            {
+                "t": "set",
+                "p": "estadoBE",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 680,
+        "y": 420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4f1d349bb85c6454",
+        "type": "change",
+        "z": "59fa7343ef35ec3d",
+        "name": "Set Token Global",
+        "rules": [
+            {
+                "t": "set",
+                "p": "authToken",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 850,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d1ee6671ae3b1970",
+        "type": "function",
+        "z": "59fa7343ef35ec3d",
+        "name": "",
+        "func": "if (msg.token == \"No hay token :(\") return msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 640,
+        "y": 300,
+        "wires": [
+            [
+                "aecf667e1820c71d"
+            ]
+        ]
+    },
+    {
+        "id": "f7eeb9f2a8ed98c6",
+        "type": "inject",
+        "z": "59fa7343ef35ec3d",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "15",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 195,
+        "y": 300,
+        "wires": [
+            [
+                "8c7e4d71a10d7be1"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "8315c56790638ce1",
+        "type": "mqtt in",
+        "z": "27c9c3458b135fa3",
+        "name": "",
+        "topic": "+/raspi/+",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "2f514204aa9d12a5",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 80,
+        "y": 180,
+        "wires": [
+            [
+                "0a56db9b1306bbe3"
+            ]
+        ]
+    },
+    {
+        "id": "9d341359b113f5ba",
+        "type": "debug",
+        "z": "27c9c3458b135fa3",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 710,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "206fd4951af2b5f3",
+        "type": "http request",
+        "z": "27c9c3458b135fa3",
+        "name": "",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "body",
+        "url": "",
+        "tls": "0a8e5288251d92fc",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 525,
+        "y": 180,
+        "wires": [
+            [
+                "9d341359b113f5ba"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "a6d64e3f5d2d8487",
+        "type": "function",
+        "z": "27c9c3458b135fa3",
+        "name": "Post Historico",
+        "func": "let token = global.get(\"authToken.tokenEncript\");\nmsg.headers = {};\nmsg.headers[\"Content-Type\"] = \"application/json\";\nmsg.headers[\"Authorization\"] = \"Bearer \" + token;\nmsg.url = global.get(\"config.urlBase\")+'/api/historico';\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 180,
+        "wires": [
+            [
+                "206fd4951af2b5f3"
+            ]
+        ]
+    },
+    {
+        "id": "0a56db9b1306bbe3",
+        "type": "json",
+        "z": "27c9c3458b135fa3",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 235,
+        "y": 180,
+        "wires": [
+            [
+                "a6d64e3f5d2d8487"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "e8f77dea40b3637b",
+        "type": "rpi-gpio out",
+        "z": "27c9c3458b135fa3",
+        "name": "Azul",
+        "pin": "26",
+        "set": true,
+        "level": "0",
+        "freq": "",
+        "out": "out",
+        "bcm": true,
+        "x": 810,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "6ed1a63bc69c503e",
+        "type": "rpi-gpio out",
+        "z": "27c9c3458b135fa3",
+        "name": "Verde",
+        "pin": "19",
+        "set": "",
+        "level": "0",
+        "freq": "",
+        "out": "out",
+        "bcm": true,
+        "x": 810,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "31c072a6fd3fbb35",
+        "type": "rpi-gpio out",
+        "z": "27c9c3458b135fa3",
+        "name": "Rojo",
+        "pin": "13",
+        "set": true,
+        "level": "0",
+        "freq": "",
+        "out": "out",
+        "bcm": true,
+        "x": 810,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "46fc48ceede66669",
+        "type": "function",
+        "z": "27c9c3458b135fa3",
+        "name": "Verificación ESTADO",
+        "func": "if (global.get(\"estadoBE\") == global.get(\"estadoBEAnt\")) {\n    msg.payload = 1;\n    msg.cambio = false;\n} else {\n    msg.payload = 0;\n    msg.cambio = true;\n}\n\nglobal.set(\"estadoBEAnt\", global.get(\"estadoBE\"));\n\nswitch (global.get(\"estadoBE\")) {\n    case \"Logueado OK\": msg.color = \"Verde\"; break;\n    case \"Desconectado\": msg.color = \"Rojo\"; break;\n    case \"Desconocido :(\": msg.color = \"Violeta\"; break;\n    case \"No logueado\": msg.color = \"Azul\"; break;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 180,
+        "y": 380,
+        "wires": [
+            [
+                "2c845e24d6ba75d1",
+                "5b867a997f29d29d"
+            ]
+        ]
+    },
+    {
+        "id": "a026fdbe54e2c9a6",
+        "type": "switch",
+        "z": "27c9c3458b135fa3",
+        "name": "Colores",
+        "property": "color",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Verde",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Azul",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Rojo",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Violeta",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 4,
+        "x": 540,
+        "y": 300,
+        "wires": [
+            [
+                "6ed1a63bc69c503e"
+            ],
+            [
+                "e8f77dea40b3637b"
+            ],
+            [
+                "31c072a6fd3fbb35"
+            ],
+            [
+                "e8f77dea40b3637b",
+                "31c072a6fd3fbb35"
+            ]
+        ]
+    },
+    {
+        "id": "0d6371f15c9249ab",
+        "type": "inject",
+        "z": "27c9c3458b135fa3",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 155,
+        "y": 280,
+        "wires": [
+            [
+                "46fc48ceede66669"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "2c845e24d6ba75d1",
+        "type": "switch",
+        "z": "27c9c3458b135fa3",
+        "name": "0 o 1",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 390,
+        "y": 360,
+        "wires": [
+            [
+                "a026fdbe54e2c9a6"
+            ],
+            [
+                "cdd841c22a76a651"
+            ]
+        ]
+    },
+    {
+        "id": "cdd841c22a76a651",
+        "type": "change",
+        "z": "27c9c3458b135fa3",
+        "name": "0",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 600,
+        "y": 420,
+        "wires": [
+            [
+                "31c072a6fd3fbb35",
+                "6ed1a63bc69c503e",
+                "e8f77dea40b3637b"
+            ]
+        ]
+    },
+    {
+        "id": "5b867a997f29d29d",
+        "type": "switch",
+        "z": "27c9c3458b135fa3",
+        "name": "Cambió?",
+        "property": "cambio",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "true",
+                "vt": "jsonata"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 400,
+        "y": 420,
+        "wires": [
+            [
+                "cdd841c22a76a651"
+            ]
+        ]
+    },
+    {
+        "id": "71e612c1acddcc86",
+        "type": "ui_toast",
+        "z": "27c9c3458b135fa3",
+        "position": "dialog",
+        "displayTime": "5",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 1,
+        "ok": "OK",
+        "cancel": "",
+        "raw": true,
+        "className": "",
+        "topic": "",
+        "name": "Nuevo dato",
+        "x": 310,
+        "y": 100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5b83e625d3a3ddc7",
+        "type": "inject",
+        "z": "6d60c71f0bc4b4a8",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 45,
+        "y": 300,
+        "wires": [
+            [
+                "aeac7a72995ed66e",
+                "0ff30539089a2c77"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "6156dd14c98f8dd4",
+        "type": "template",
+        "z": "6d60c71f0bc4b4a8",
+        "name": "ParseJSON",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{\n\"temperatura\":{{payload.temperature_C}},\n\"humedad\":{{payload.humidity}},\n\"presion\":{{payload.pressure_hPa}},\n\"punto_rocio\":{{payload.dewPoint_C}},\n\"altitud\":{{payload.altitude_M}}\n}",
+        "output": "json",
+        "x": 350,
+        "y": 100,
+        "wires": [
+            [
+                "a789a1afed17e880"
+            ]
+        ]
+    },
+    {
+        "id": "a789a1afed17e880",
+        "type": "change",
+        "z": "6d60c71f0bc4b4a8",
+        "name": "setPayload",
+        "rules": [
+            {
+                "t": "set",
+                "p": "template",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 530,
+        "y": 60,
+        "wires": [
+            [
+                "9e4034fc72baa5b6"
+            ]
+        ]
+    },
+    {
+        "id": "9e4034fc72baa5b6",
+        "type": "function",
+        "z": "6d60c71f0bc4b4a8",
+        "name": "ArmaDTO",
+        "func": "msg.payload.humedad = parseFloat(msg.payload.humedad.toFixed(2));\nmsg.payload.presion = parseFloat(msg.payload.presion.toFixed(2));\nmsg.payload.puntoRocio = parseFloat(msg.payload.punto_rocio.toFixed(2));\nmsg.payload.altitud = parseFloat(msg.payload.altitud.toFixed(2));\n\n//msg.payload.temperatura_UoM = \" ºC\";\n//msg.payload.humedad_UoM = \" %\";\n//msg.payload.presion_UoM = \" Pa\";\n//msg.payload.punto_rocio_UoM = \" ºC\";\n//msg.payload.altitud_UoM = \" Mts\";\n\nvar aux = {\n    temperatura: msg.payload.temperatura,\n    humedad: msg.payload.humedad,\n    presion: msg.payload.presion,\n    puntoRocio: msg.payload.puntoRocio,\n    altitud: msg.payload.altitud,\n    fechaHora:new Date().toLocaleString(),\n    localizacion:global.get(\"localizacion\")\n}\n\nmsg.payload = {};\nmsg.payload.rawData = aux;\n\nvar out = Math.floor(Math.random() * (4 - 1)) + 1;\n\nmsg.payload.subCategoria = \"raspi\";\n\nif (global.get(\"identificador\") == undefined \n    || global.get(\"identificador\") == \"\")\n    msg.payload.identificador = \"ID\";\nelse\n    msg.payload.identificador = global.get(\"identificador\");\n\nmsg.topic = \"/\" + msg.payload.subCategoria + \"/\" + msg.payload.identificador;\n\nif (out == 1) {\n    msg.payload.categoria = \"habitacion\";\n    msg.topic = \"habitacion\" + msg.topic;\n} else if (out == 2) {\n    msg.payload.categoria = \"comedor\";\n    msg.topic = \"comedor\" + msg.topic;\n} else {\n    msg.payload.categoria = \"living\";\n    msg.topic = \"living\" + msg.topic;\n}\n\nmsg.payload.topic = msg.topic;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "\n",
+        "finalize": "",
+        "libs": [],
+        "x": 700,
+        "y": 140,
+        "wires": [
+            [
+                "975d56e7a4c1a564",
+                "d2067b624da249bf"
+            ]
+        ]
+    },
+    {
+        "id": "975d56e7a4c1a564",
+        "type": "debug",
+        "z": "6d60c71f0bc4b4a8",
+        "name": "DTO armado",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 870,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "9c36338dc8265ef7",
+        "type": "ui_gauge",
+        "z": "6d60c71f0bc4b4a8",
+        "name": "",
+        "group": "632dd31c506ad044",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temperatura",
+        "label": "ºC",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "30",
+        "colors": [
+            "#6daddf",
+            "#f2f282",
+            "#e86868"
+        ],
+        "seg1": "Frío",
+        "seg2": "Calor",
+        "className": "",
+        "x": 610,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "db8ba9fa549d290a",
+        "type": "change",
+        "z": "6d60c71f0bc4b4a8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.temperature_C",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 420,
+        "y": 340,
+        "wires": [
+            [
+                "9c36338dc8265ef7"
+            ]
+        ]
+    },
+    {
+        "id": "d2067b624da249bf",
+        "type": "mqtt out",
+        "z": "6d60c71f0bc4b4a8",
+        "name": "",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "2f514204aa9d12a5",
+        "x": 850,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "aeac7a72995ed66e",
+        "type": "Bme280",
+        "z": "6d60c71f0bc4b4a8",
+        "name": "",
+        "bus": "1",
+        "address": "0x76",
+        "topic": "bme280",
+        "extra": true,
+        "x": 120,
+        "y": 180,
+        "wires": [
+            [
+                "db8ba9fa549d290a",
+                "e426d5e276019026"
+            ]
+        ]
+    },
+    {
+        "id": "0ff30539089a2c77",
+        "type": "ip",
+        "z": "6d60c71f0bc4b4a8",
+        "name": "ip",
+        "https": false,
+        "timeout": "5000",
+        "internalIPv4": true,
+        "internalIPv6": false,
+        "publicIPv4": true,
+        "publicIPv6": false,
+        "x": 70,
+        "y": 420,
+        "wires": [
+            [
+                "3f187ed351a4a308"
+            ]
+        ]
+    },
+    {
+        "id": "addeb2836145d73c",
+        "type": "ip-location-lite",
+        "z": "6d60c71f0bc4b4a8",
+        "name": "",
+        "inputField": "payload",
+        "outputField": "payload",
+        "x": 530,
+        "y": 420,
+        "wires": [
+            [
+                "af2dfad8d32172f2"
+            ]
+        ]
+    },
+    {
+        "id": "3f187ed351a4a308",
+        "type": "change",
+        "z": "6d60c71f0bc4b4a8",
+        "name": "Pasa IP a geolocalizador",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.publicIPv4",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 290,
+        "y": 420,
+        "wires": [
+            [
+                "addeb2836145d73c"
+            ]
+        ]
+    },
+    {
+        "id": "af2dfad8d32172f2",
+        "type": "function",
+        "z": "6d60c71f0bc4b4a8",
+        "name": "Set localización",
+        "func": "global.set(\"localizacion\", msg.payload.city);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 720,
+        "y": 420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e426d5e276019026",
+        "type": "function",
+        "z": "6d60c71f0bc4b4a8",
+        "name": "Ver autenticación por hardware",
+        "func": "if (global.get(\"pir\") == true && global.get(\"identificador\") != \"\" && global.get(\"timer\") > 0) {\n    global.set(\"timer\", global.get(\"timer\") - 1);\n    return [msg, null];\n} else {\n    msg.payload = \"Error. No se cumplen las condicioones\" +\n    \" para la autentificación por hardware.\";\n    return [null, msg];\n}",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 180,
+        "wires": [
+            [
+                "6156dd14c98f8dd4"
+            ],
+            [
+                "8b95a94ab49d4457"
+            ]
+        ]
+    },
+    {
+        "id": "8b95a94ab49d4457",
+        "type": "debug",
+        "z": "6d60c71f0bc4b4a8",
+        "name": "debug 14",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 615,
+        "y": 240,
+        "wires": [],
+        "icon": "font-awesome/fa-warning",
+        "l": false
+    },
+    {
+        "id": "33d0145642194307",
+        "type": "rc522",
+        "z": "c0379f98f4b9dfe9",
+        "name": "RFID",
+        "blockedFor": 5,
+        "x": 110,
+        "y": 260,
+        "wires": [
+            [
+                "7843081b611e2072"
+            ]
+        ]
+    },
+    {
+        "id": "3d30cda26e95423e",
+        "type": "rpi-gpio in",
+        "z": "c0379f98f4b9dfe9",
+        "name": "PIR",
+        "pin": "20",
+        "intype": "tri",
+        "debounce": "25",
+        "read": false,
+        "bcm": true,
+        "x": 110,
+        "y": 160,
+        "wires": [
+            [
+                "a44a4f9db3d359c1"
+            ]
+        ]
+    },
+    {
+        "id": "7843081b611e2072",
+        "type": "function",
+        "z": "c0379f98f4b9dfe9",
+        "name": "Identificadores y flag",
+        "func": "if (msg.payload.uid == \"4991e373\") {\n    global.set(\"identificador\", \"Llavero\");\n    global.set(\"timer\", 5);\n} else if (msg.payload.uid == \"e5fc13a1\") {\n    global.set(\"identificador\", \"RedBus\");\n    global.set(\"timer\", 5);\n} else if (msg.payload.uid == \"748c9525\") {\n    global.set(\"identificador\", \"Tarjeta\");\n    global.set(\"timer\", 5);\n} else {\n    global.set(\"identificador\", \"\");\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a44a4f9db3d359c1",
+        "type": "function",
+        "z": "c0379f98f4b9dfe9",
+        "name": "Flag",
+        "func": "if (msg.payload == 1) {\n   global.set(\"pir\", true); \n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 310,
+        "y": 160,
+        "wires": [
+            [
+                "574bfc37c62b9db8"
+            ]
+        ]
+    },
+    {
+        "id": "574bfc37c62b9db8",
+        "type": "delay",
+        "z": "c0379f98f4b9dfe9",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "8",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 500,
+        "y": 160,
+        "wires": [
+            [
+                "1b70b56aee3368ed"
+            ]
+        ]
+    },
+    {
+        "id": "1b70b56aee3368ed",
+        "type": "function",
+        "z": "c0379f98f4b9dfe9",
+        "name": "Flag",
+        "func": "if (msg.payload == 1) {\n   global.set(\"pir\", false); \n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 670,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "179ccc451b8cd811",
+        "type": "ui_table",
+        "z": "3928cff450179ddf",
+        "group": "5c916f117a65dbca",
+        "name": "",
+        "order": 1,
+        "width": 13,
+        "height": 13,
+        "columns": [],
+        "outputs": 0,
+        "cts": false,
+        "x": 1010,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "c5cd2908d17a61cc",
+        "type": "function",
+        "z": "3928cff450179ddf",
+        "name": "Get listado",
+        "func": "let token = global.get(\"authToken.tokenEncript\");\nmsg.headers = {};\nmsg.headers[\"Content-Type\"] = \"application/json\";\nmsg.headers[\"Authorization\"] = \"Bearer \" + token;\nmsg.url = global.get(\"config.urlBase\") + '/api/historico/paginado';\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 270,
+        "y": 200,
+        "wires": [
+            [
+                "0dab2e9946751ba8"
+            ]
+        ]
+    },
+    {
+        "id": "0dab2e9946751ba8",
+        "type": "http request",
+        "z": "3928cff450179ddf",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "body",
+        "url": "",
+        "tls": "0a8e5288251d92fc",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 405,
+        "y": 200,
+        "wires": [
+            [
+                "fcb6426a5d702a5c"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "f53f6c2bb5da2396",
+        "type": "inject",
+        "z": "3928cff450179ddf",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "300",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 90,
+        "y": 200,
+        "wires": [
+            [
+                "c5cd2908d17a61cc",
+                "66623d3701d461d5"
+            ]
+        ]
+    },
+    {
+        "id": "66623d3701d461d5",
+        "type": "function",
+        "z": "3928cff450179ddf",
+        "name": "Get ultimo",
+        "func": "let token = global.get(\"authToken.tokenEncript\");\nmsg.headers = {};\nmsg.headers[\"Content-Type\"] = \"application/json\";\nmsg.headers[\"Authorization\"] = \"Bearer \" + token;\nmsg.url = global.get(\"config.urlBase\") + '/api/historico/ultimo';\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 360,
+        "wires": [
+            [
+                "06cc49f73090dd79"
+            ]
+        ]
+    },
+    {
+        "id": "06cc49f73090dd79",
+        "type": "http request",
+        "z": "3928cff450179ddf",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "body",
+        "url": "",
+        "tls": "0a8e5288251d92fc",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 545,
+        "y": 360,
+        "wires": [
+            [
+                "32fe5eae8d4dacb6"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "99bfd22ea90ce9cd",
+        "type": "ui_text",
+        "z": "3928cff450179ddf",
+        "group": "1e25c1bc251f3a72",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 790,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "fcb6426a5d702a5c",
+        "type": "json",
+        "z": "3928cff450179ddf",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": true,
+        "x": 390,
+        "y": 100,
+        "wires": [
+            [
+                "8f99c604582315cc"
+            ]
+        ]
+    },
+    {
+        "id": "32fe5eae8d4dacb6",
+        "type": "json",
+        "z": "3928cff450179ddf",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 650,
+        "y": 360,
+        "wires": [
+            [
+                "99bfd22ea90ce9cd"
+            ]
+        ]
+    },
+    {
+        "id": "93710767e8ad5ead",
+        "type": "split",
+        "z": "3928cff450179ddf",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 590,
+        "y": 200,
+        "wires": [
+            [
+                "1b92464d7a09929c"
+            ]
+        ]
+    },
+    {
+        "id": "876456bdd9434434",
+        "type": "change",
+        "z": "3928cff450179ddf",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.temperatura",
+                "pt": "msg",
+                "to": "payload.rawData.temperatura",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload.humedad",
+                "pt": "msg",
+                "to": "payload.rawData.humedad",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload.presion",
+                "pt": "msg",
+                "to": "payload.rawData.presion",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload.puntoRocio",
+                "pt": "msg",
+                "to": "payload.rawData.puntoRocio",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload.altitud",
+                "pt": "msg",
+                "to": "payload.rawData.altitud",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload.fechaHora",
+                "pt": "msg",
+                "to": "payload.rawData.fechaHora",
+                "tot": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "payload.rawData",
+                "pt": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "payload.categoria",
+                "pt": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "payload.subCategoria",
+                "pt": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "payload.identificador",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 910,
+        "y": 200,
+        "wires": [
+            [
+                "48da8d24591a6c28"
+            ]
+        ]
+    },
+    {
+        "id": "48da8d24591a6c28",
+        "type": "join",
+        "z": "3928cff450179ddf",
+        "name": "",
+        "mode": "auto",
+        "build": "object",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": true,
+        "timeout": "",
+        "count": "",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 1090,
+        "y": 180,
+        "wires": [
+            [
+                "179ccc451b8cd811"
+            ]
+        ]
+    },
+    {
+        "id": "1b92464d7a09929c",
+        "type": "function",
+        "z": "3928cff450179ddf",
+        "name": "Arma topic",
+        "func": "msg.payload.topic = msg.payload.categoria + \"/\" + msg.payload.subCategoria + \"/\" + msg.payload.identificador;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 730,
+        "y": 200,
+        "wires": [
+            [
+                "876456bdd9434434"
+            ]
+        ]
+    },
+    {
+        "id": "2cbdc0cdb387bf2f",
+        "type": "debug",
+        "z": "3928cff450179ddf",
+        "name": "debug 12",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 660,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "8f99c604582315cc",
+        "type": "change",
+        "z": "3928cff450179ddf",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.content",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 495,
+        "y": 160,
+        "wires": [
+            [
+                "93710767e8ad5ead",
+                "2cbdc0cdb387bf2f"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "80110fec2265709a",
+        "type": "mqtt in",
+        "z": "846cf899a1e3891c",
+        "name": "",
+        "topic": "+/raspi/+",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "2f514204aa9d12a5",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 60,
+        "y": 160,
+        "wires": [
+            [
+                "4e38bd984fd11859"
+            ]
+        ]
+    },
+    {
+        "id": "e6753f932a3c9b0e",
+        "type": "function",
+        "z": "846cf899a1e3891c",
+        "name": "function 1",
+        "func": "var categoria = (msg.payload.topic).split(\"/\");\nmsg.payload.topic = categoria;\nif (categoria[0] == \"habitacion\" && categoria[2] == \"Llavero\") {\n    msg.payload.habitacionLlavero = \"Temperatura: \" + msg.payload.rawData.temperatura +\n    \" °C | Humedad: \" + msg.payload.rawData.humedad + \" % | Presion: \"\n    + msg.payload.rawData.presion + \" Pa | fechaHora: \" + msg.payload.rawData. fechaHora + \n        \" | Localización: \" + msg.payload.rawData.localizacion;\n    return [msg, null, null, null, null, null, null, null, null];\n\n} else if (categoria[0] == \"habitacion\" && categoria[2] == \"RedBus\") {\n    msg.payload.habitacionRedBus = \"Temperatura: \" + msg.payload.rawData.temperatura +\n        \" °C | Humedad: \" + msg.payload.rawData.humedad + \" % | Presion: \"\n        + msg.payload.rawData.presion + \" Pa | fechaHora: \" + msg.payload.rawData.fechaHora +\n        \" | Localización: \" + msg.payload.rawData.localizacion;\n    return [null, msg, null, null, null, null, null, null, null];\n    \n} else if (categoria[0] == \"habitacion\" && categoria[2] == \"Tarjeta\") {\n    msg.payload.habitacionTarjeta = \"Temperatura: \" + msg.payload.rawData.temperatura +\n        \" °C | Humedad: \" + msg.payload.rawData.humedad + \" % | Presion: \"\n        + msg.payload.rawData.presion + \" Pa | fechaHora: \" + msg.payload.rawData.fechaHora +\n        \" | Localización: \" + msg.payload.rawData.localizacion;\n    return [null, null, msg, null, null, null, null, null, null];\n\n} else if (categoria[0] == \"comedor\" && categoria[2] == \"Llavero\") {\n    msg.payload.comedorLlavero = \"Temperatura: \" + msg.payload.rawData.temperatura +\n        \" °C | Humedad: \" + msg.payload.rawData.humedad + \" % | Presion: \"\n        + msg.payload.rawData.presion + \" Pa | fechaHora: \" + msg.payload.rawData.fechaHora +\n        \" | Localización: \" + msg.payload.rawData.localizacion;\n    return [null, null, null, msg, null, null, null, null, null];\n\n} else if (categoria[0] == \"comedor\" && categoria[2] == \"RedBus\") {\n    msg.payload.comedorRedBus = \"Temperatura: \" + msg.payload.rawData.temperatura +\n        \" °C | Humedad: \" + msg.payload.rawData.humedad + \" % | Presion: \"\n        + msg.payload.rawData.presion + \" Pa | fechaHora: \" + msg.payload.rawData.fechaHora +\n        \" | Localización: \" + msg.payload.rawData.localizacion;\n    return [null, null, null, null, msg, null, null, null, null];\n\n} else if (categoria[0] == \"comedor\" && categoria[2] == \"Tarjeta\") {\n    msg.payload.comedorTarjeta = \"Temperatura: \" + msg.payload.rawData.temperatura +\n        \" °C | Humedad: \" + msg.payload.rawData.humedad + \" % | Presion: \"\n        + msg.payload.rawData.presion + \" Pa | fechaHora: \" + msg.payload.rawData.fechaHora +\n        \" | Localización: \" + msg.payload.rawData.localizacion;\n    return [null, null, null, null, null, msg, null, null, null];\n\n} else if (categoria[0] == \"living\" && categoria[2] == \"Llavero\") {\n    msg.payload.livingLlavero = \"Temperatura: \" + msg.payload.rawData.temperatura +\n        \" °C | Humedad: \" + msg.payload.rawData.humedad + \" % | Presion: \"\n        + msg.payload.rawData.presion + \" Pa | fechaHora: \" + msg.payload.rawData.fechaHora +\n        \" | Localización: \" + msg.payload.rawData.localizacion;\n    return [null, null, null, null, null, null, msg, null, null];\n\n} else if (categoria[0] == \"living\" && categoria[2] == \"RedBus\") {\n    msg.payload.livingRedBus = \"Temperatura: \" + msg.payload.rawData.temperatura +\n        \" °C | Humedad: \" + msg.payload.rawData.humedad + \" % | Presion: \"\n        + msg.payload.rawData.presion + \" Pa | fechaHora: \" + msg.payload.rawData.fechaHora +\n        \" | Localización: \" + msg.payload.rawData.localizacion;\n    return [null, null, null, null, null, null, null, msg, null];\n\n} else if (categoria[0] == \"living\" && categoria[2] == \"Tarjeta\") {\n    msg.payload.livingTarjeta = \"Temperatura: \" + msg.payload.rawData.temperatura +\n        \" °C | Humedad: \" + msg.payload.rawData.humedad + \" % | Presion: \"\n        + msg.payload.rawData.presion + \" Pa | fechaHora: \" + msg.payload.rawData.fechaHora +\n        \" | Localización: \" + msg.payload.rawData.localizacion;\n    return [null, null, null, null, null, null, null, null, msg];\n\n}\nreturn msg;",
+        "outputs": 9,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 140,
+        "wires": [
+            [
+                "c750f6092aa4657a"
+            ],
+            [
+                "7d224fe29b7fee1a"
+            ],
+            [
+                "ed7dd36d3f9abfda"
+            ],
+            [
+                "6cc6e4f09caa5786"
+            ],
+            [
+                "66068cdfb208f80b"
+            ],
+            [
+                "0dba64f60dbb95cd"
+            ],
+            [
+                "f4c698a9f1e0fa77"
+            ],
+            [
+                "1238ae629ba09f5f"
+            ],
+            [
+                "f87cc71276c51bf4"
+            ]
+        ]
+    },
+    {
+        "id": "93f738aa570d345d",
+        "type": "debug",
+        "z": "846cf899a1e3891c",
+        "name": "debug 15",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 160,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "c750f6092aa4657a",
+        "type": "ui_text",
+        "z": "846cf899a1e3891c",
+        "group": "770cfeb9b86b033d",
+        "order": 1,
+        "width": 6,
+        "height": 1,
+        "name": "habitacion/raspi/llavero",
+        "label": "",
+        "format": "{{msg.payload.habitacionLlavero}}",
+        "layout": "col-center",
+        "className": "",
+        "x": 700,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "7d224fe29b7fee1a",
+        "type": "ui_text",
+        "z": "846cf899a1e3891c",
+        "group": "59cf72f9132b74ee",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "habitacion/raspi/redbus",
+        "label": "",
+        "format": "{{msg.payload.habitacionRedBus}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 710,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "ed7dd36d3f9abfda",
+        "type": "ui_text",
+        "z": "846cf899a1e3891c",
+        "group": "0e98a85edf42cce2",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "habitacion/raspi/tarjeta",
+        "label": "",
+        "format": "{{msg.payload.habitacionTarjeta}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 700,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "4e38bd984fd11859",
+        "type": "json",
+        "z": "846cf899a1e3891c",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 230,
+        "y": 140,
+        "wires": [
+            [
+                "e6753f932a3c9b0e",
+                "93f738aa570d345d"
+            ]
+        ]
+    },
+    {
+        "id": "6cc6e4f09caa5786",
+        "type": "ui_text",
+        "z": "846cf899a1e3891c",
+        "group": "2a75df78c8acf7d3",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "comedor/raspi/llavero",
+        "label": "",
+        "format": "{{msg.payload.comedorLlavero}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 700,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "66068cdfb208f80b",
+        "type": "ui_text",
+        "z": "846cf899a1e3891c",
+        "group": "4ffcd0c2295bfc73",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "comedor/raspi/redbus",
+        "label": "",
+        "format": "{{msg.payload.comedorRedBus}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 700,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "0dba64f60dbb95cd",
+        "type": "ui_text",
+        "z": "846cf899a1e3891c",
+        "group": "fed5826aacd1115e",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "comedor/raspi/tarjeta",
+        "label": "",
+        "format": "{{msg.payload.comedorTarjeta}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 700,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "f4c698a9f1e0fa77",
+        "type": "ui_text",
+        "z": "846cf899a1e3891c",
+        "group": "78e159f74573253d",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "living/raspi/llavero",
+        "label": "",
+        "format": "{{msg.payload.livingLlavero}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 690,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "1238ae629ba09f5f",
+        "type": "ui_text",
+        "z": "846cf899a1e3891c",
+        "group": "7c53060ca6048737",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "living/raspi/redbus",
+        "label": "",
+        "format": "{{msg.payload.livingRedBus}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 690,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "f87cc71276c51bf4",
+        "type": "ui_text",
+        "z": "846cf899a1e3891c",
+        "group": "b27c4a8444c4c702",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "living/raspi/tarjeta",
+        "label": "",
+        "format": "{{msg.payload.livingTarjeta}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 690,
+        "y": 360,
+        "wires": []
+    }
+]
